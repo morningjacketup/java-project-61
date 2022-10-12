@@ -2,6 +2,11 @@
 <checkstyle version="8.37">
 <file name="/root/hexlet-project-61/java-project-61/app/src/main/java/hexlet/code/App.java">
 </file>
+<file name="/root/hexlet-project-61/java-project-61/app/src/main/java/hexlet/code/CalculatorGame.java">
+<error line="26" column="13" severity="error" message="switch without &quot;default&quot; clause." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="32" column="114" severity="error" message="&apos;)&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
+<error line="39" severity="error" message="Line is longer than 120 characters (found 125)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
 <file name="/root/hexlet-project-61/java-project-61/app/src/main/java/hexlet/code/Cli.java">
 </file>
 <file name="/root/hexlet-project-61/java-project-61/app/src/main/java/hexlet/code/OddOrEvenGame.java">

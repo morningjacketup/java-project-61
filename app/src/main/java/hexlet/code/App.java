@@ -3,6 +3,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
+import static hexlet.code.CalculatorGame.startCalculatorGame;
 import static hexlet.code.Cli.greeting;
 import static hexlet.code.OddOrEvenGame.startGame;
 
@@ -21,6 +22,9 @@ public class App {
         } else if (numberOfGame == 2) {
             greeting();
             startGame();
+        } else if (numberOfGame == 3) {
+            greeting();
+            startCalculatorGame();
         }
     }
 }
