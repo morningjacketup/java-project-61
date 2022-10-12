@@ -16,17 +16,21 @@ public class CalculatorGame {
         int randomNumber2 = 0;
         System.out.println("What is the result of the expression?");
 
-        while (counter > 3) {
+        while (counter < 3) {
             randomNumber1 = random.nextInt(100);
             randomNumber2 = random.nextInt(100);
             int randomIndex = random.nextInt(2);
 
             int expression = 0;
 
-            switch (randomIndex) {
-                case 0: expression = randomNumber1 + randomNumber2;
-                case 1: expression = randomNumber1 - randomNumber2;
-                case 2: expression = randomNumber1 * randomNumber2;
+            if (randomIndex == 0) {
+                expression = randomNumber1 + randomNumber2;
+            }
+            if (randomIndex == 1) {
+                expression = randomNumber1 - randomNumber2;
+            }
+            if (randomIndex == 2) {
+                expression = randomNumber1 * randomNumber2;
             }
 
             System.out.println("Question: " + randomNumber1 + " " + operation[randomIndex] + " " + randomNumber2 );
@@ -39,9 +43,10 @@ public class CalculatorGame {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'" + expression + "'");
                 counter += 3;
             }
-            if (counter == 3) {
-                System.out.println("Congratulations, " + Cli.getName() + "!");
-            }
+
+        }
+        if (counter == 3) {
+            System.out.println("Congratulations, " + Cli.getName() + "!");
         }
     }
 
