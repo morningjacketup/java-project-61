@@ -20,8 +20,8 @@ public class Engine {
     public static int getCounter() {
         return counter;
     }
-    public static void setCounter(int counter) {
-        Engine.counter = counter;
+    public static void setCounter(int counterLost) {
+        Engine.counter = counterLost;
     }
     public static void incrementCounter() {
         Engine.counter += 1;
