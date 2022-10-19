@@ -41,11 +41,11 @@ public class OddOrEvenGame {
                 System.out.println("'" + currentAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                counter += 5;
+                counter += Engine.ROUNDSFORLOSE;
             }
         }
 
-        if (counter == 3) {
+        if (counter == Engine.ROUNDSFORWIN) {
             System.out.println("Congratulations, " + Cli.getName() + "!");
         }
     }

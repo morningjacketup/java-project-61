@@ -47,10 +47,10 @@ public class CalculatorGame {
                         + " is wrong answer ;(. Correct answer was "
                         + "'" + expression + "'");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                counter += 4;
+                counter += Engine.ROUNDSFORLOSE;
             }
         }
-        if (counter == 3) {
+        if (counter == Engine.ROUNDSFORWIN) {
             System.out.println("Congratulations, " + Cli.getName() + "!");
         }
     }
