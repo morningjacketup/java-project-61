@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Engine {
 
     public static final int ROUNDS = 3;
-
     public static final int START = 1;
     public static final int RANDOMNUMBER = 50;
     public static final int RANDOMSECONDNUMBER = 100;
@@ -18,6 +17,7 @@ public class Engine {
     public static final int ROUNDSFORLOSE = 5;
     public static final int COUNTOFARRAYSIZE = 10;
     public static int counter;
+    public static int answer;
 
 
     public static void greetingsText() {
@@ -55,7 +55,12 @@ public class Engine {
 
     public static int getRandomIndex() {
         Random random = new Random();
-        return random.nextInt(Engine.RANDOMINDEXFORCALCULATOR);
+        return random.nextInt(Engine.RANDOMINDEX);
+    }
+
+    public static int getRandomStep() {
+        Random random = new Random();
+        return random.nextInt(Engine.BEGINSTEP, Engine.FINISHSTEP);
     }
 
     public static void congratulations() {
@@ -64,3 +69,4 @@ public class Engine {
         }
     }
 }
+

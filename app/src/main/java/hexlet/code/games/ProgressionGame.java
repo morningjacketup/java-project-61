@@ -5,8 +5,6 @@ import main.java.hexlet.code.Engine;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
 
 public class ProgressionGame {
 
@@ -16,11 +14,9 @@ public class ProgressionGame {
         while (Engine.counter < Engine.ROUNDS) {
             List<Integer> list = new ArrayList<>();
 
-            Random random = new Random();
-
-            int step = random.nextInt(Engine.BEGINSTEP, Engine.FINISHSTEP);
-            int randomIndex = random.nextInt(Engine.RANDOMINDEX);
-            int randomStart = random.nextInt(Engine.RANDOMNUMBER);
+            int step = Engine.getRandomStep();
+            int randomIndex = Engine.getRandomIndex();
+            int randomStart = Engine.getRandomNumber();
 
             for (int i = 0; i < Engine.COUNTOFARRAYSIZE; i++) {
                 list.add(randomStart);
