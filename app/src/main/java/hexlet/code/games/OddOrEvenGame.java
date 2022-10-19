@@ -14,10 +14,12 @@ public class OddOrEvenGame {
         String correctAnswer;
         String currentAnswer;
 
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+
         while (counter < 3) {
             int randomNumber = random.nextInt(100);
-            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.\nQuestion "
-                    + randomNumber + "\nYour answer: ");
+            System.out.println("Question: " + randomNumber + "\nYour answer: ");
+
 
             boolean isEven = randomNumber % 2 == 0;
 
