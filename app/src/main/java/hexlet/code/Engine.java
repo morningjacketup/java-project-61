@@ -15,5 +15,7 @@ public class Engine {
 
     public static final int RANDOMINDEX = 10;
 
+    public static final int RANDOMINDEXFORCALCULATOR = 2;
+
 
 }

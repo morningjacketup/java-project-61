@@ -22,7 +22,7 @@ public class CalculatorGame {
         while (counter < Engine.ROUNDS) {
             randomNumber1 = random.nextInt(Engine.RANDOMNUMBER);
             randomNumber2 = random.nextInt(Engine.RANDOMSECONDNUMBER);
-            int randomIndex = random.nextInt(Engine.RANDOMINDEX);
+            int randomIndex = random.nextInt(Engine.RANDOMINDEXFORCALCULATOR);
 
             int expression = 0;
 
