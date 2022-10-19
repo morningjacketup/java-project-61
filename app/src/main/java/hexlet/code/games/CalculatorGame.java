@@ -45,7 +45,7 @@ public class CalculatorGame {
                 System.out.println("'" + answer + "'"
                         + " is wrong answer ;(. Correct answer was "
                         + "'" + expression + "'");
-                System.out.println("Let's try again, " + Cli.getName() +"!");
+                System.out.println("Let's try again, " + Cli.getName() + "!");
                 counter += 4;
             }
         }

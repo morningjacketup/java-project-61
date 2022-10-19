@@ -12,11 +12,12 @@ public class ProgressionGame {
     public static void startGame() {
         int counter = 0;
 
+        System.out.println("What number is missing in the progression?");
+
         while (counter < 3) {
             Scanner sc = new Scanner(System.in);
 
-            List<Object> list = new ArrayList<>();
-            List<Integer> list2 = new ArrayList<>();
+            List<Integer> list = new ArrayList<>();
 
             Random random = new Random();
 
@@ -26,27 +27,36 @@ public class ProgressionGame {
 
             for (int i = 0; i < 10; i++) {
                 list.add(randomStart);
-                list2.add(randomStart);
                 randomStart += step;
             }
 
-            list.set(randomIndex, "..");
+            String listString = list.toString();
 
-            System.out.println(list);
+            System.out.println("Question: ");
+
+            for (int i = 0; i < randomIndex; i++) {
+                System.out.print(list.get(i) + " ");
+            }
+
+            System.out.print(" .. ");
+
+            for (int i = randomIndex + 1; i < list.size() - 1; i++) {
+                System.out.print(" " + list.get(i));
+            }
+
+            System.out.println("\nYour answer: ");
 
             int answer = sc.nextInt();
 
-            list.set(randomIndex, "..");
-
-            if (list2.get(randomIndex) == answer) {
+            if (list.get(randomIndex) == answer) {
                 System.out.println("Correct");
                 counter++;
             } else {
                 System.out.println("'" + answer + "'"
                         + " is wrong answer ;(. Correct answer was "
                         + "'"
-                        + list2.get(randomIndex) + "'");
-                System.out.println("Let's try again, " + Cli.getName() +"!");
+                        + list.get(randomIndex) + "'");
+                System.out.println("Let's try again, " + Cli.getName() + "!");
                 counter += 4;
             }
         }

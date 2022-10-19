@@ -35,7 +35,7 @@ public class GCDGame {
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
                         + randomNumber + "'");
-                System.out.println("Let's try again, " + Cli.getName() +"!");
+                System.out.println("Let's try again, " + Cli.getName() + "!");
                 counter += 4;
             }
         }
