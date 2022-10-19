@@ -44,7 +44,7 @@ public class OddOrEvenGame {
         }
 
         if (counter == 3) {
-            System.out.println("Congratulation " + Cli.getName() + "!");
+            System.out.println("Congratulation, " + Cli.getName() + "!");
         }
     }
 }
