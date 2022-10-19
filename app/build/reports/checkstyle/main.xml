@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.37">
-<file name="/root/hexlet-project-61/java-project-61/app/src/main/java/hexlet/code/App.java">
+<file name="/home/washburn/project-61/java-project-61/app/src/main/java/hexlet/code/App.java">
 </file>
-<file name="/root/hexlet-project-61/java-project-61/app/src/main/java/hexlet/code/CalculatorGame.java">
-<error line="36" column="114" severity="error" message="&apos;)&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
-<error line="43" severity="error" message="Line is longer than 120 characters (found 125)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<file name="/home/washburn/project-61/java-project-61/app/src/main/java/hexlet/code/Cli.java">
 </file>
-<file name="/root/hexlet-project-61/java-project-61/app/src/main/java/hexlet/code/Cli.java">
+<file name="/home/washburn/project-61/java-project-61/app/src/main/java/hexlet/code/Engine.java">
 </file>
-<file name="/root/hexlet-project-61/java-project-61/app/src/main/java/hexlet/code/OddOrEvenGame.java">
+<file name="/home/washburn/project-61/java-project-61/app/src/main/java/hexlet/code/games/CalculatorGame.java">
+</file>
+<file name="/home/washburn/project-61/java-project-61/app/src/main/java/hexlet/code/games/GCDGame.java">
+</file>
+<file name="/home/washburn/project-61/java-project-61/app/src/main/java/hexlet/code/games/OddOrEvenGame.java">
+</file>
+<file name="/home/washburn/project-61/java-project-61/app/src/main/java/hexlet/code/games/PrimeGame.java">
+</file>
+<file name="/home/washburn/project-61/java-project-61/app/src/main/java/hexlet/code/games/ProgressionGame.java">
 </file>
 </checkstyle>

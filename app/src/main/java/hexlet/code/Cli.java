@@ -10,7 +10,7 @@ public class Cli {
         return name;
     }
 
-    static void greeting() {
+    public static void greeting() {
         Scanner sc = new Scanner(System.in);
         System.out.println("May I have your name?");
         name = sc.nextLine();
