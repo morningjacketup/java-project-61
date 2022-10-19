@@ -21,17 +21,15 @@ public class OddOrEvenGame {
 
             if (isEven) {
                 correctAnswer = "yes";
-                currentAnswer = answer;
             } else {
                 correctAnswer = "no";
-                currentAnswer = answer;
             }
 
             if ((isEven && answer.equals("yes")) || (!isEven && answer.equals("no"))) {
                 System.out.println("Correct");
                 Engine.incrementCounter();
             } else {
-                System.out.println("'" + currentAnswer + "' is wrong answer ;(. Correct answer was '"
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
                 Engine.setCounter(Engine.ROUNDSFORLOSE);
