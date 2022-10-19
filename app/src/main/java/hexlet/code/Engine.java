@@ -19,5 +19,6 @@ public class Engine {
 
     public static final int ROUNDSFORWIN = 3;
     public static final int ROUNDSFORLOSE = 5;
+    public static final int COUNTOFARRAYSIZE = 10;
 
 }

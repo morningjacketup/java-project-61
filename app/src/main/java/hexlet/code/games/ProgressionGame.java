@@ -26,7 +26,7 @@ public class ProgressionGame {
             int randomIndex = random.nextInt(Engine.RANDOMINDEX);
             int randomStart = random.nextInt(Engine.RANDOMNUMBER);
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < Engine.COUNTOFARRAYSIZE; i++) {
                 list.add(randomStart);
                 randomStart += step;
             }
