@@ -81,5 +81,11 @@ public class Engine {
             System.out.println("Congratulations, " + hexlet.code.Cli.getName() + "!");
         }
     }
+
+    public static void gameOver(String answer, String correctAnswer) {
+        System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
+                + correctAnswer + "'");
+        System.out.println("Let's try again, " + hexlet.code.Cli.getName() + "!");
+    }
 }
 
