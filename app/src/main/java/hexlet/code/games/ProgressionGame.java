@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Cli;
+import main.java.hexlet.code.Engine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +15,16 @@ public class ProgressionGame {
 
         System.out.println("What number is missing in the progression?");
 
-        while (counter < 3) {
+        while (counter < Engine.ROUNDS) {
             Scanner sc = new Scanner(System.in);
 
             List<Integer> list = new ArrayList<>();
 
             Random random = new Random();
 
-            int step = random.nextInt(2, 5);
-            int randomIndex = random.nextInt(10);
-            int randomStart = random.nextInt(100);
+            int step = random.nextInt(Engine.BEGINSTEP, Engine.FINISHSTEP);
+            int randomIndex = random.nextInt(Engine.RANDOMNUMBER);
+            int randomStart = random.nextInt(Engine.RANDOMSECONDNUMBER);
 
             for (int i = 0; i < 10; i++) {
                 list.add(randomStart);

@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Cli;
+import main.java.hexlet.code.Engine;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -16,8 +17,8 @@ public class PrimeGame {
 
         int counter = 0;
 
-        while (counter < 3) {
-            int correctNumber = random.nextInt(100);
+        while (counter < Engine.ROUNDS) {
+            int correctNumber = random.nextInt(Engine.RANDOMSECONDNUMBER);
 
             System.out.println("Question: " + correctNumber);
 

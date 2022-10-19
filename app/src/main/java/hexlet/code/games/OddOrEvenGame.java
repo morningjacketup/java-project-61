@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Cli;
+import main.java.hexlet.code.Engine;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -16,8 +17,8 @@ public class OddOrEvenGame {
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        while (counter < 3) {
-            int randomNumber = random.nextInt(100);
+        while (counter < Engine.ROUNDS) {
+            int randomNumber = random.nextInt(Engine.RANDOMNUMBER);
             System.out.println("Question: " + randomNumber + "\nYour answer: ");
 
 

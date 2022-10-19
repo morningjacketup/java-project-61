@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Cli;
+import main.java.hexlet.code.Engine;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -18,10 +19,10 @@ public class CalculatorGame {
         int randomNumber2;
         System.out.println("What is the result of the expression?");
 
-        while (counter < 3) {
-            randomNumber1 = random.nextInt(10);
-            randomNumber2 = random.nextInt(10);
-            int randomIndex = random.nextInt(3);
+        while (counter < Engine.ROUNDS) {
+            randomNumber1 = random.nextInt(Engine.RANDOMNUMBER);
+            randomNumber2 = random.nextInt(Engine.RANDOMSECONDNUMBER);
+            int randomIndex = random.nextInt(Engine.RANDOMINDEX);
 
             int expression = 0;
 
