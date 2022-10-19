@@ -38,7 +38,7 @@ public class ProgressionGame {
                 System.out.print(list.get(i) + " ");
             }
 
-            System.out.print(" .. ");
+            System.out.print("..");
 
             for (int i = randomIndex + 1; i < list.size() - 1; i++) {
                 System.out.print(" " + list.get(i));
