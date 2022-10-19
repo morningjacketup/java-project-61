@@ -11,7 +11,7 @@ public class ProgressionGame {
     public static void startGame() {
         System.out.println("What number is missing in the progression?");
 
-        while (Engine.counter < Engine.ROUNDS) {
+        while (Engine.getCounter() < Engine.ROUNDS) {
             List<Integer> list = new ArrayList<>();
 
             int step = Engine.getRandomStep();
@@ -41,14 +41,14 @@ public class ProgressionGame {
 
             if (list.get(randomIndex) == answer) {
                 System.out.println("Correct");
-                Engine.counter++;
+                Engine.incrementCounter();
             } else {
                 System.out.println("'" + answer + "'"
                         + " is wrong answer ;(. Correct answer was "
                         + "'"
                         + list.get(randomIndex) + "'");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                Engine.counter += Engine.ROUNDSFORLOSE;
+                Engine.setCounter(Engine.ROUNDSFORLOSE);
             }
         }
         Engine.congratulations();

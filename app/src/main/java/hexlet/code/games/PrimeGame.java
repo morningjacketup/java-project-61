@@ -8,7 +8,7 @@ public class PrimeGame {
     public static void startGame() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        while (Engine.counter < Engine.ROUNDS) {
+        while (Engine.getCounter() < Engine.ROUNDS) {
             int correctNumber = Engine.getRandomNumber2();
 
             System.out.println("Question: " + correctNumber);
@@ -25,14 +25,14 @@ public class PrimeGame {
 
             if (answer.equals(correctAnswer)) {
                 System.out.println("Correct");
-                Engine.counter++;
+                Engine.incrementCounter();
             } else {
                 System.out.println("'" + answer + "'"
                         + " is wrong answer ;(. Correct answer was "
                         + "'"
                         + correctAnswer + "'");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                Engine.counter += Engine.ROUNDSFORLOSE;
+                Engine.setCounter(Engine.ROUNDSFORLOSE);
             }
         }
         Engine.congratulations();

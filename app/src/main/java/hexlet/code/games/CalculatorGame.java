@@ -9,7 +9,7 @@ public class CalculatorGame {
         String[] operation = {"+", "-", "*"};
         System.out.println("What is the result of the expression?");
 
-        while (Engine.counter < Engine.ROUNDS) {
+        while (Engine.getCounter() < Engine.ROUNDS) {
             int randomNumber1 = Engine.getRandomNumber();
             int randomNumber2 = Engine.getRandomNumber2();
             int randomIndex = Engine.getRandomIndexForCalculator();
@@ -31,13 +31,13 @@ public class CalculatorGame {
 
             if (answer == expression) {
                 System.out.println("Correct");
-                Engine.counter++;
+                Engine.incrementCounter();
             } else {
                 System.out.println("'" + answer + "'"
                         + " is wrong answer ;(. Correct answer was "
                         + "'" + expression + "'");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                Engine.counter += Engine.ROUNDSFORLOSE;
+                Engine.setCounter(Engine.ROUNDSFORLOSE);
             }
         }
         Engine.congratulations();

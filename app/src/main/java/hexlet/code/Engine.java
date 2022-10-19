@@ -16,8 +16,16 @@ public class Engine {
     public static final int ROUNDSFORWIN = 3;
     public static final int ROUNDSFORLOSE = 5;
     public static final int COUNTOFARRAYSIZE = 10;
-    public static int counter;
-    public static int answer;
+    private static int counter = 0;
+    public static int getCounter() {
+        return counter;
+    }
+    public static void setCounter(int counter) {
+        Engine.counter = counter;
+    }
+    public static void incrementCounter() {
+        Engine.counter += 1;
+    }
 
 
     public static void greetingsText() {
