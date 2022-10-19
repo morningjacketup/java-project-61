@@ -23,15 +23,13 @@ public class ProgressionGame {
             Random random = new Random();
 
             int step = random.nextInt(Engine.BEGINSTEP, Engine.FINISHSTEP);
-            int randomIndex = random.nextInt(Engine.RANDOMNUMBER);
-            int randomStart = random.nextInt(Engine.RANDOMSECONDNUMBER);
+            int randomIndex = random.nextInt(Engine.RANDOMINDEX);
+            int randomStart = random.nextInt(Engine.RANDOMNUMBER);
 
             for (int i = 0; i < 10; i++) {
                 list.add(randomStart);
                 randomStart += step;
             }
-
-            String listString = list.toString();
 
             System.out.print("Question: ");
 

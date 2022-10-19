@@ -13,7 +13,7 @@ public class Engine {
     public static final int BEGINSTEP = 1;
     public static final int FINISHSTEP = 5;
 
-    public static final int RANDOMINDEX = 3;
+    public static final int RANDOMINDEX = 10;
 
 
 }
