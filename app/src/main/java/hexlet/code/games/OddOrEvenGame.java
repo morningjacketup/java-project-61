@@ -39,6 +39,7 @@ public class OddOrEvenGame {
             } else {
                 System.out.println("'" + currentAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'");
+                System.out.println("Let's try again, " + Cli.getName() +"!");
                 counter += 5;
             }
         }

@@ -46,6 +46,7 @@ public class ProgressionGame {
                         + " is wrong answer ;(. Correct answer was "
                         + "'"
                         + list2.get(randomIndex) + "'");
+                System.out.println("Let's try again, " + Cli.getName() +"!");
                 counter += 4;
             }
         }

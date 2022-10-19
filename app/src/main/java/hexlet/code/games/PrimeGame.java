@@ -39,6 +39,7 @@ public class PrimeGame {
                         + " is wrong answer ;(. Correct answer was "
                         + "'"
                         + correctAnswer + "'");
+                System.out.println("Let's try again, " + Cli.getName() +"!");
                 counter += 3;
             }
         }
