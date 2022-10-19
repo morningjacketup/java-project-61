@@ -27,6 +27,7 @@ public class App {
         switch (numberOfGame) {
             case 1:
                 greeting();
+                break;
             case 2:
                 greeting();
                 OddOrEvenGame.startGame();
