@@ -15,9 +15,8 @@ public class OddOrEvenGame {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         while (Engine.counter < Engine.ROUNDS) {
-            int randomNumber = random.nextInt(Engine.RANDOMNUMBER);
+            int randomNumber = Engine.getRandomNumber();
             System.out.println("Question: " + randomNumber + "\nYour answer: ");
-
 
             boolean isEven = randomNumber % 2 == 0;
 
@@ -41,9 +40,6 @@ public class OddOrEvenGame {
                 Engine.counter += Engine.ROUNDSFORLOSE;
             }
         }
-
-        if (Engine.counter == Engine.ROUNDSFORWIN) {
-            System.out.println("Congratulations, " + Cli.getName() + "!");
-        }
+        Engine.congratulations();
     }
 }

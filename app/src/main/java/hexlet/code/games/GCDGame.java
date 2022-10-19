@@ -36,8 +36,6 @@ public class GCDGame {
                 Engine.counter += Engine.ROUNDSFORLOSE;
             }
         }
-        if (Engine.counter == Engine.ROUNDSFORWIN) {
-            System.out.println("Congratulations, " + Cli.getName() + "!");
-        }
+        Engine.congratulations();
     }
 }

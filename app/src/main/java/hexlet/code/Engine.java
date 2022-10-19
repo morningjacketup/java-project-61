@@ -57,4 +57,10 @@ public class Engine {
         Random random = new Random();
         return random.nextInt(Engine.RANDOMINDEXFORCALCULATOR);
     }
+
+    public static void congratulations() {
+        if (Engine.counter == Engine.ROUNDSFORWIN) {
+            System.out.println("Congratulations, " + hexlet.code.Cli.getName() + "!");
+        }
+    }
 }
