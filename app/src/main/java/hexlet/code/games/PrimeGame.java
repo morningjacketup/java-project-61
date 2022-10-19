@@ -3,22 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 import main.java.hexlet.code.Engine;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class PrimeGame {
 
     public static void startGame() {
-
-        Random random = new Random();
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        int counter = 0;
-
-        while (counter < Engine.ROUNDS) {
-            int correctNumber = random.nextInt(Engine.RANDOMSECONDNUMBER);
+        while (Engine.getCounter() < Engine.ROUNDS) {
+            int correctNumber = Engine.getRandomNumber2();
 
             System.out.println("Question: " + correctNumber);
 
@@ -30,24 +21,21 @@ public class PrimeGame {
                 correctAnswer = "no";
             }
 
-            String answer = sc.nextLine();
+            String answer = Engine.inputString();
 
             if (answer.equals(correctAnswer)) {
                 System.out.println("Correct");
-                counter++;
+                Engine.incrementCounter();
             } else {
                 System.out.println("'" + answer + "'"
                         + " is wrong answer ;(. Correct answer was "
                         + "'"
                         + correctAnswer + "'");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                counter += Engine.ROUNDSFORLOSE;
+                Engine.setCounter(Engine.ROUNDSFORLOSE);
             }
         }
-
-        if (counter == Engine.ROUNDSFORWIN) {
-            System.out.println("Congratulations, " + Cli.getName() + "!");
-        }
+        Engine.congratulations();
     }
 
 
