@@ -32,7 +32,7 @@ public class ProgressionGame {
 
             String listString = list.toString();
 
-            System.out.println("Question: ");
+            System.out.print("Question: ");
 
             for (int i = 0; i < randomIndex; i++) {
                 System.out.print(list.get(i) + " ");
