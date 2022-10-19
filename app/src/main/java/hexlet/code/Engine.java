@@ -58,6 +58,11 @@ public class Engine {
         return random.nextInt(Engine.RANDOMINDEX);
     }
 
+    public static int getRandomIndexForCalculator() {
+        Random random = new Random();
+        return random.nextInt(Engine.RANDOMINDEXFORCALCULATOR);
+    }
+
     public static int getRandomStep() {
         Random random = new Random();
         return random.nextInt(Engine.BEGINSTEP, Engine.FINISHSTEP);

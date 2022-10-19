@@ -12,7 +12,7 @@ public class CalculatorGame {
         while (Engine.counter < Engine.ROUNDS) {
             int randomNumber1 = Engine.getRandomNumber();
             int randomNumber2 = Engine.getRandomNumber2();
-            int randomIndex = Engine.getRandomIndex();
+            int randomIndex = Engine.getRandomIndexForCalculator();
 
             int expression = 0;
 
