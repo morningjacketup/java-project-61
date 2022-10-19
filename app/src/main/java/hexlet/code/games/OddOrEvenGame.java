@@ -9,22 +9,19 @@ import java.util.Scanner;
 public class OddOrEvenGame {
 
     public static void startGame() {
-        int counter = 0;
-        Random random = new Random();
-        Scanner sc = new Scanner(System.in);
         String correctAnswer;
         String currentAnswer;
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        while (counter < Engine.ROUNDS) {
+        while (Engine.counter < Engine.ROUNDS) {
             int randomNumber = random.nextInt(Engine.RANDOMNUMBER);
             System.out.println("Question: " + randomNumber + "\nYour answer: ");
 
 
             boolean isEven = randomNumber % 2 == 0;
 
-            String answer = sc.nextLine();
+            String answer = Engine.inputString();
 
             if (isEven) {
                 correctAnswer = "yes";
@@ -36,16 +33,16 @@ public class OddOrEvenGame {
 
             if ((isEven && answer.equals("yes")) || (!isEven && answer.equals("no"))) {
                 System.out.println("Correct");
-                counter++;
+                Engine.counter++;
             } else {
                 System.out.println("'" + currentAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                counter += Engine.ROUNDSFORLOSE;
+                Engine.counter += Engine.ROUNDSFORLOSE;
             }
         }
 
-        if (counter == Engine.ROUNDSFORWIN) {
+        if (Engine.counter == Engine.ROUNDSFORWIN) {
             System.out.println("Congratulations, " + Cli.getName() + "!");
         }
     }

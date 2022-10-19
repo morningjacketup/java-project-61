@@ -5,11 +5,13 @@ import hexlet.code.games.GCDGame;
 import hexlet.code.games.OddOrEvenGame;
 import hexlet.code.games.ProgressionGame;
 import hexlet.code.games.PrimeGame;
+import main.java.hexlet.code.Engine;
 
 
 import java.util.Scanner;
 
 import static hexlet.code.Cli.greeting;
+import static main.java.hexlet.code.Engine.inputNumber;
 
 public class App {
 
@@ -21,16 +23,10 @@ public class App {
     public static final int PRIME = 6;
 
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.\n"
-                + "1 - Greet\n"
-                + "2 - Even\n"
-                + "3 - Calculator\n"
-                + "4 - GCD\n"
-                + "5 - Progression\n"
-                + "6 - Prime\n"
-                + "0 - Exit");
-        Scanner sc = new Scanner(System.in);
-        int numberOfGame = sc.nextInt();
+        Engine.greetingsText();
+
+        int numberOfGame = inputNumber();
+
         switch (numberOfGame) {
             case GREETINGS:
                 greeting();

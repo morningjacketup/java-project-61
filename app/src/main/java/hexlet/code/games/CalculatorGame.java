@@ -9,20 +9,13 @@ import java.util.Scanner;
 public class CalculatorGame {
 
     public static void startGame() {
-        Random random = new Random();
-        Scanner sc = new Scanner(System.in);
-
-        int counter = 0;
         String[] operation = {"+", "-", "*"};
-
-        int randomNumber1;
-        int randomNumber2;
         System.out.println("What is the result of the expression?");
 
-        while (counter < Engine.ROUNDS) {
-            randomNumber1 = random.nextInt(Engine.RANDOMNUMBER);
-            randomNumber2 = random.nextInt(Engine.RANDOMSECONDNUMBER);
-            int randomIndex = random.nextInt(Engine.RANDOMINDEXFORCALCULATOR);
+        while (Engine.counter < Engine.ROUNDS) {
+            int randomNumber1 = Engine.getRandomNumber();
+            int randomNumber2 = Engine.getRandomNumber2();
+            int randomIndex = Engine.getRandomIndex();
 
             int expression = 0;
 
@@ -37,20 +30,20 @@ public class CalculatorGame {
             }
 
             System.out.println("Question: " + randomNumber1 + " " + operation[randomIndex] + " " + randomNumber2);
-            int answer = sc.nextInt();
+            int answer = Engine.inputNumber();
 
             if (answer == expression) {
                 System.out.println("Correct");
-                counter++;
+                Engine.counter++;
             } else {
                 System.out.println("'" + answer + "'"
                         + " is wrong answer ;(. Correct answer was "
                         + "'" + expression + "'");
                 System.out.println("Let's try again, " + Cli.getName() + "!");
-                counter += Engine.ROUNDSFORLOSE;
+                Engine.counter += Engine.ROUNDSFORLOSE;
             }
         }
-        if (counter == Engine.ROUNDSFORWIN) {
+        if (Engine.counter == Engine.ROUNDSFORWIN) {
             System.out.println("Congratulations, " + Cli.getName() + "!");
         }
     }
