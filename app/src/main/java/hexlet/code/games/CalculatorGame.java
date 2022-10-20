@@ -7,7 +7,6 @@ public class CalculatorGame {
     public static void startGame() {
         String[] operation = {"+", "-", "*"};
         System.out.println("What is the result of the expression?");
-
         while (Engine.getCounter() < Engine.ROUNDS) {
             int randomNumber1 = Engine.getRandomNumber();
             int randomNumber2 = Engine.getRandomNumber2();
@@ -23,6 +22,7 @@ public class CalculatorGame {
             if (randomIndex == 2) {
                 expression = randomNumber1 * randomNumber2;
             }
+
             System.out.println("Question: " + randomNumber1 + " " + operation[randomIndex] + " " + randomNumber2);
             int answer = Engine.inputNumber();
 
