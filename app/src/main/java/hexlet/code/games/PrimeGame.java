@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import main.java.hexlet.code.Engine;
 
 public class PrimeGame {
@@ -13,25 +12,14 @@ public class PrimeGame {
 
             System.out.println("Question: " + correctNumber);
 
-            String correctAnswer;
-
-            if (isPrime(correctNumber)) {
-                correctAnswer = "yes";
-            } else {
-                correctAnswer = "no";
-            }
-
+            String correctAnswer = isPrime(correctNumber) ? "yes" : "no";
             String answer = Engine.inputString();
 
             if (answer.equals(correctAnswer)) {
                 System.out.println("Correct");
                 Engine.incrementCounter();
             } else {
-                System.out.println("'" + answer + "'"
-                        + " is wrong answer ;(. Correct answer was "
-                        + "'"
-                        + correctAnswer + "'");
-                System.out.println("Let's try again, " + Cli.getName() + "!");
+                Engine.gameOver(correctAnswer, answer);
                 Engine.setCounter(Engine.ROUNDSFORLOSE);
             }
         }

@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import main.java.hexlet.code.Engine;
 
 public class GCDGame {
@@ -27,9 +26,9 @@ public class GCDGame {
                 System.out.println("Correct");
                 Engine.incrementCounter();
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
-                        + randomNumber + "'");
-                System.out.println("Let's try again, " + Cli.getName() + "!");
+                String num = Integer.toString(randomNumber);
+                String ans = Integer.toString(answer);
+                Engine.gameOver(ans, num);
                 Engine.setCounter(Engine.ROUNDSFORLOSE);
             }
         }
