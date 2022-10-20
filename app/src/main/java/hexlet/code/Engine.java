@@ -12,7 +12,7 @@ public class Engine {
     public static final int BEGINSTEP = 1;
     public static final int FINISHSTEP = 5;
     public static final int RANDOMINDEX = 10;
-    public static final int RANDOMINDEXFORCALCULATOR = 2;
+    public static final int RANDOMINDEXFORCALCULATOR = 3;
     public static final int ROUNDSFORWIN = 3;
     public static final int ROUNDSFORLOSE = 5;
     public static final int COUNTOFARRAYSIZE = 10;

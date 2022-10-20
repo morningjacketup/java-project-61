@@ -13,13 +13,14 @@ public class CalculatorGame {
             int randomIndex = Engine.getRandomIndexForCalculator();
             int expression = 0;
 
-            switch (randomIndex) {
-                case 0:
-                    expression = randomNumber1 + randomNumber2;
-                case 1:
-                    expression = randomNumber1 - randomNumber2;
-                default:
-                    expression = randomNumber1 * randomNumber2;
+            if (randomIndex == 0) {
+                expression = randomNumber1 + randomNumber2;
+            }
+            if (randomIndex == 1) {
+                expression = randomNumber1 - randomNumber2;
+            }
+            if (randomIndex == 2) {
+                expression = randomNumber1 * randomNumber2;
             }
 
             System.out.println("Question: " + randomNumber1 + " " + operation[randomIndex] + " " + randomNumber2);
