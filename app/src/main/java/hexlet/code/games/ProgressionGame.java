@@ -13,7 +13,6 @@ public class ProgressionGame {
 
         while (Engine.getCounter() < Engine.ROUNDS) {
             List<Integer> list = new ArrayList<>();
-
             int step = Engine.getRandomStep();
             int randomIndex = Engine.getRandomIndex();
             int randomStart = Engine.getRandomNumber();
