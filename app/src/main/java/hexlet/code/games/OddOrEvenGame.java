@@ -13,7 +13,7 @@ public class OddOrEvenGame {
             String answer = Engine.inputString();
             String correctAnswer = isEven ? "yes" : "no";
             if ((isEven && answer.equals("yes")) || (!isEven && answer.equals("no"))) {
-                System.out.println("Correct");
+                Engine.correctAnswer();
                 Engine.incrementCounter();
             } else {
                 Engine.gameOver(answer, correctAnswer);

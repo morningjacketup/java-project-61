@@ -27,7 +27,7 @@ public class CalculatorGame {
             int answer = Engine.inputNumber();
 
             if (answer == expression) {
-                System.out.println("Correct");
+                Engine.correctAnswer();
                 Engine.incrementCounter();
             } else {
                 String ans = Integer.toString(answer);

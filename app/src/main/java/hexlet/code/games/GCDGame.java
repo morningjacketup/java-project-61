@@ -19,7 +19,7 @@ public class GCDGame {
             }
             int answer = Engine.inputNumber();
             if (randomNumber == answer) {
-                System.out.println("Correct");
+                Engine.correctAnswer();
                 Engine.incrementCounter();
             } else {
                 String num = Integer.toString(randomNumber);

@@ -39,7 +39,7 @@ public class ProgressionGame {
             int answer = Engine.inputNumber();
 
             if (list.get(randomIndex) == answer) {
-                System.out.println("Correct");
+                Engine.correctAnswer();
                 Engine.incrementCounter();
             } else {
                 System.out.println("'" + answer + "'"

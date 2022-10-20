@@ -87,5 +87,9 @@ public class Engine {
                 + correctAnswer + "'");
         System.out.println("Let's try again, " + hexlet.code.Cli.getName() + "!");
     }
+
+    public static void correctAnswer() {
+        System.out.println("Correct");
+    }
 }
 
