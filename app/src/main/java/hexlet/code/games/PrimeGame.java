@@ -13,7 +13,7 @@ public class PrimeGame {
             String answer = Engine.inputString();
 
             if (answer.equals(correctAnswer)) {
-                System.out.println("Correct");
+                Engine.correctAnswer();
                 Engine.incrementCounter();
             } else {
                 Engine.gameOver(correctAnswer, answer);
