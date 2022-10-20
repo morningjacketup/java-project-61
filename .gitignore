@@ -2,8 +2,8 @@
 .gradle
 
 .idea
-.github/workflows
-.gradle/wrapper
+.github
 
 # Ignore Gradle build output directory
 build
+gradle/wrapper
