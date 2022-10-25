@@ -5,12 +5,13 @@ import hexlet.code.games.GCDGame;
 import hexlet.code.games.OddOrEvenGame;
 import hexlet.code.games.ProgressionGame;
 import hexlet.code.games.PrimeGame;
-import main.java.hexlet.code.Engine;
 
-import static hexlet.code.Cli.greeting;
-import static main.java.hexlet.code.Engine.inputNumber;
+import java.util.Scanner;
+
+import static hexlet.code.Cli.greet;
 
 public class App {
+    private static final int MAXID = 6;
     public static final int GREETINGS = 1;
     public static final int EVEN = 2;
     public static final int CALCULATOR = 3;
@@ -19,35 +20,34 @@ public class App {
     public static final int PRIME = 6;
 
     public static void main(String[] args) {
-        Engine.greetingsText();
-        int numberOfGame = inputNumber();
-
-        switch (numberOfGame) {
-            case GREETINGS:
-                greeting();
-                break;
-            case EVEN:
-                greeting();
-                OddOrEvenGame.startGame();
-                break;
-            case CALCULATOR:
-                greeting();
-                CalculatorGame.startGame();
-                break;
-            case GCD:
-                greeting();
-                GCDGame.startGame();
-                break;
-            case PROGRESSION:
-                greeting();
-                ProgressionGame.startGame();
-                break;
-            case PRIME:
-                greeting();
-                PrimeGame.startGame();
-                break;
-            default:
-                break;
+        System.out.println("/Welcome to the Brain Games!\n"
+                + "May I have your name? "
+                + "Please enter the game number and press Enter.\n"
+                + "1 - Greet\n"
+                + "2 - Even\n"
+                + "3 - Calculator\n"
+                + "4 - GCD\n"
+                + "5 - Progression\n"
+                + "6 - Prime\n"
+                + "0 - Exit");
+        Scanner sc = new Scanner(System.in);
+        while (!sc.hasNextInt()) {
+            sc.next();
         }
+        int numberOfGame = sc.nextInt();
+        System.out.println("Your choice: " + numberOfGame);
+        if (0 < numberOfGame && numberOfGame <= MAXID) {
+            switch (numberOfGame) {
+                case GREETINGS -> greet();
+                case EVEN -> OddOrEvenGame.startGame();
+                case CALCULATOR -> CalculatorGame.startGame();
+                case GCD -> GCDGame.startGame();
+                case PROGRESSION -> ProgressionGame.startGame();
+                case PRIME -> PrimeGame.startGame();
+                default -> { }
+            }
+        }
+        sc.close();
     }
+
 }

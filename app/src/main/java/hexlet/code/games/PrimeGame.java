@@ -1,26 +1,22 @@
 package hexlet.code.games;
 
 import main.java.hexlet.code.Engine;
+import main.java.hexlet.code.utils.NameUtils;
+import main.java.hexlet.code.utils.RandomNumberGenerator;
 
 public class PrimeGame {
+    private static final String QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int MAXNUMBER = 100;
+    private static final int COUNTOFGAMES = 3;
 
     public static void startGame() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        while (Engine.getCounter() < Engine.ROUNDS) {
-            int correctNumber = Engine.getRandomNumber2();
-            System.out.println("Question: " + correctNumber);
-            String correctAnswer = isPrime(correctNumber) ? "yes" : "no";
-            String answer = Engine.inputString();
-
-            if (answer.equals(correctAnswer)) {
-                Engine.correctAnswer();
-                Engine.incrementCounter();
-            } else {
-                Engine.gameOver(correctAnswer, answer);
-                Engine.setCounter(Engine.ROUNDSFORLOSE);
-            }
+        String name = NameUtils.askName();
+        String[][] questionAndAnswerArray = new String[COUNTOFGAMES][COUNTOFGAMES];
+        for (int i = 0; i < COUNTOFGAMES; i++) {
+            questionAndAnswerArray[i][0] = makeQuestion();
+            questionAndAnswerArray[i][1] = getSolution(Integer.parseInt(questionAndAnswerArray[i][0]));
         }
-        Engine.congratulations();
+        Engine.run(name, QUESTION, questionAndAnswerArray);
     }
 
     public static boolean isPrime(int number) {
@@ -35,4 +31,12 @@ public class PrimeGame {
         return true;
     }
 
+    public static String makeQuestion() {
+        int correctNumber = RandomNumberGenerator.generateRandom(MAXNUMBER);
+        return String.valueOf(correctNumber);
+    }
+
+    public static String getSolution(final int correctNumber) {
+        return isPrime(correctNumber) ? "yes" : "no";
+    }
 }

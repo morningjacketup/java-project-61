@@ -1,95 +1,36 @@
 package main.java.hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-
-    public static final int ROUNDS = 3;
-    public static final int START = 1;
-    public static final int RANDOMNUMBER = 50;
-    public static final int RANDOMSECONDNUMBER = 100;
-    public static final int BEGINSTEP = 1;
-    public static final int FINISHSTEP = 5;
-    public static final int RANDOMINDEX = 10;
-    public static final int RANDOMINDEXFORCALCULATOR = 3;
-    public static final int ROUNDSFORWIN = 3;
-    public static final int ROUNDSFORLOSE = 5;
-    public static final int COUNTOFARRAYSIZE = 10;
     private static int counter = 0;
-    public static int getCounter() {
-        return counter;
-    }
-    public static void setCounter(int counterLost) {
-        Engine.counter = counterLost;
-    }
-    public static void incrementCounter() {
-        Engine.counter += 1;
-    }
+    private static final int ROUNDS = 3;
+    private static String input;
+    private String[][] questionAndAnswerArray;
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final String WRONG = "' is wrong answer ;(. Correct answer was '";
+    private static final String AGAIN = "'\nLet's try again, ";
 
-
-    public static void greetingsText() {
-        System.out.println("Please enter the game number and press Enter.\n"
-                + "1 - Greet\n"
-                + "2 - Even\n"
-                + "3 - Calculator\n"
-                + "4 - GCD\n"
-                + "5 - Progression\n"
-                + "6 - Prime\n"
-                + "0 - Exit");
-    }
-
-    public static int inputNumber() {
-        Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
-        return number;
-    }
-
-    public static String inputString() {
-        Scanner sc = new Scanner(System.in);
-        String text = sc.nextLine();
-        return text;
-    }
-
-    public static int getRandomNumber() {
-        Random random = new Random();
-        return random.nextInt(Engine.START, Engine.RANDOMNUMBER);
-    }
-
-    public static int getRandomNumber2() {
-        Random random = new Random();
-        return random.nextInt(Engine.START, Engine.RANDOMSECONDNUMBER);
-    }
-
-    public static int getRandomIndex() {
-        Random random = new Random();
-        return random.nextInt(Engine.RANDOMINDEX);
-    }
-
-    public static int getRandomIndexForCalculator() {
-        Random random = new Random();
-        return random.nextInt(Engine.RANDOMINDEXFORCALCULATOR);
-    }
-
-    public static int getRandomStep() {
-        Random random = new Random();
-        return random.nextInt(Engine.BEGINSTEP, Engine.FINISHSTEP);
-    }
-
-    public static void congratulations() {
-        if (Engine.counter == Engine.ROUNDSFORWIN) {
-            System.out.println("Congratulations, " + hexlet.code.Cli.getName() + "!");
+    public static void run(String userName, String gameQuestion, String[][] questionAndAnswerArray) {
+        String name = userName;
+        System.out.println(gameQuestion);
+        for (int i = 0; i < ROUNDS; i++) {
+            String answer = questionAndAnswerArray[i][1];
+            System.out.print("Question: " + questionAndAnswerArray[i][0] + "\nYour answer: ");
+            if (SCANNER.hasNext()) {
+                input = SCANNER.next();
+            }
+            if (input.equals(answer)) {
+                System.out.println("Correct!");
+                counter++;
+            } else {
+                System.out.println("'" + input + WRONG + answer + AGAIN + name + "!");
+                break;
+            }
         }
-    }
-
-    public static void gameOver(String answer, String correctAnswer) {
-        System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
-                + correctAnswer + "'");
-        System.out.println("Let's try again, " + hexlet.code.Cli.getName() + "!");
-    }
-
-    public static void correctAnswer() {
-        System.out.println("Correct");
+        if (counter == ROUNDS) {
+            System.out.println("Congratulations, " + name + "!");
+        }
     }
 }
 
