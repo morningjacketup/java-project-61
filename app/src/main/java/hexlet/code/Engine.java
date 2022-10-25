@@ -28,8 +28,12 @@ public class Engine {
                 break;
             }
         }
+        congratulation(userName);
+    }
+
+    public static void congratulation(String userName) {
         if (counter == ROUNDS) {
-            System.out.println("Congratulations, " + name + "!");
+            System.out.println("Congratulations, " + userName + "!");
         }
     }
 }

@@ -30,11 +30,9 @@ public class GCDGame {
         if (randomNumber == 0) {
             return String.valueOf(secondRandomNumber);
         }
-
         if (secondRandomNumber == 0) {
             return String.valueOf(randomNumber);
         }
-
         while (secondRandomNumber != randomNumber) {
             if (randomNumber > secondRandomNumber) {
                 randomNumber = randomNumber - secondRandomNumber;
