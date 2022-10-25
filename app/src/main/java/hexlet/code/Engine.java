@@ -12,7 +12,6 @@ public class Engine {
     private static final String AGAIN = "'\nLet's try again, ";
 
     public static void run(String userName, String gameQuestion, String[][] questionAndAnswerArray) {
-        String name = userName;
         System.out.println(gameQuestion);
         for (int i = 0; i < ROUNDS; i++) {
             String answer = questionAndAnswerArray[i][1];
@@ -24,7 +23,7 @@ public class Engine {
                 System.out.println("Correct!");
                 counter++;
             } else {
-                System.out.println("'" + input + WRONG + answer + AGAIN + name + "!");
+                System.out.println("'" + input + WRONG + answer + AGAIN + userName + "!");
                 break;
             }
         }
