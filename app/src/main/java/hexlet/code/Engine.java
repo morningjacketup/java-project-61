@@ -16,9 +16,7 @@ public class Engine {
         for (int i = 0; i < ROUNDS; i++) {
             String answer = questionAndAnswerArray[i][1];
             System.out.print("Question: " + questionAndAnswerArray[i][0] + "\nYour answer: ");
-            if (SCANNER.hasNext()) {
-                input = SCANNER.next();
-            }
+            input = SCANNER.next();
             if (input.equals(answer)) {
                 System.out.println("Correct!");
                 counter++;
