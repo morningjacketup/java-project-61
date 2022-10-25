@@ -40,7 +40,6 @@ public class ProgressionGame {
         sb.append(".. ");
         for (int i = randomIndex + 1; i < list.length - 1; i++) {
             sb.append(list[i] + " ");
-            sb.append(list[i] + " ");
         }
         return sb.toString();
     }
