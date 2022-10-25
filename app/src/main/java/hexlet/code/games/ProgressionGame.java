@@ -1,56 +1,53 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import main.java.hexlet.code.Engine;
-
-import java.util.ArrayList;
-import java.util.List;
+import main.java.hexlet.code.utils.NameUtils;
+import main.java.hexlet.code.utils.RandomNumberGenerator;
 
 public class ProgressionGame {
-
+    private static final String QUESTION = "What number is missing in the progression?";
+    private static final int MAXNUMBER = 100;
+    private static final int COUNTOFGAMES = 3;
+    private static final int COUNTOFARRAYSIZE = 10;
+    private static final int MAXSTEP = 5;
+    private static int step;
+    private static int randomIndex;
+    private static int randomStart;
+    private static int[] list;
     public static void startGame() {
-        System.out.println("What number is missing in the progression?");
-
-        while (Engine.getCounter() < Engine.ROUNDS) {
-            List<Integer> list = new ArrayList<>();
-            int step = Engine.getRandomStep();
-            int randomIndex = Engine.getRandomIndex();
-            int randomStart = Engine.getRandomNumber();
-
-            for (int i = 0; i < Engine.COUNTOFARRAYSIZE; i++) {
-                list.add(randomStart);
-                randomStart += step;
-            }
-
-            System.out.print("Question: ");
-
-            for (int i = 0; i < randomIndex; i++) {
-                System.out.print(list.get(i) + " ");
-            }
-
-            System.out.print("..");
-
-            for (int i = randomIndex + 1; i < list.size() - 1; i++) {
-                System.out.print(" " + list.get(i));
-            }
-
-            System.out.println("\nYour answer: ");
-
-            int answer = Engine.inputNumber();
-
-            if (list.get(randomIndex) == answer) {
-                Engine.correctAnswer();
-                Engine.incrementCounter();
-            } else {
-                System.out.println("'" + answer + "'"
-                        + " is wrong answer ;(. Correct answer was "
-                        + "'"
-                        + list.get(randomIndex) + "'");
-                System.out.println("Let's try again, " + Cli.getName() + "!");
-                Engine.setCounter(Engine.ROUNDSFORLOSE);
-            }
+        String name = NameUtils.askName();
+        String[][] questionAndAnswerArray = new String[COUNTOFGAMES][COUNTOFGAMES];
+        for (int i = 0; i < COUNTOFGAMES; i++) {
+            questionAndAnswerArray[i][0] = makeQuestion();
+            questionAndAnswerArray[i][1] = getSolution();
         }
-        Engine.congratulations();
+        Engine.run(name, QUESTION, questionAndAnswerArray);
+    }
+
+    public static String makeQuestion() {
+        StringBuilder sb = new StringBuilder();
+        step = RandomNumberGenerator.generateRandom(MAXSTEP) + 1;
+        randomIndex = RandomNumberGenerator.generateRandom(COUNTOFARRAYSIZE);
+        randomStart = RandomNumberGenerator.generateRandom(MAXNUMBER);
+        list = new int[COUNTOFARRAYSIZE];
+        for (int i = 0; i < COUNTOFARRAYSIZE; i++) {
+            list[i] = randomStart;
+            randomStart += step;
+        }
+        for (int i = 0; i < randomIndex; i++) {
+            sb.append(list[i] + " ");
+        }
+        sb.append(".. ");
+        for (int i = randomIndex + 1; i < list.length - 1; i++) {
+            sb.append(list[i] + " ");
+            sb.append(list[i] + " ");
+        }
+        return sb.toString();
+    }
+
+    public static String getSolution() {
+        int result = list[randomIndex];
+        return String.valueOf(result);
     }
 
 }

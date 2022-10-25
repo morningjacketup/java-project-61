@@ -1,33 +1,39 @@
 package hexlet.code.games;
 
 import main.java.hexlet.code.Engine;
+import main.java.hexlet.code.utils.NameUtils;
+import main.java.hexlet.code.utils.RandomNumberGenerator;
 
 public class GCDGame {
-
+    private static final String QUESTION = "Find the greatest common divisor of given numbers.";
+    private static final int MAXNUMBER = 100;
+    private static final int COUNTOFGAMES = 3;
+    private static int randomNumber;
+    private static int secondRandomNumber;
     public static void startGame() {
-        while (Engine.getCounter() < Engine.ROUNDS) {
-            int randomNumber = Engine.getRandomNumber();
-            int randomNumber2 = Engine.getRandomNumber2();
-            System.out.println("Find the greatest common divisor of given numbers.\nQuestion: "
-                    + randomNumber + " " + randomNumber2);
-            while (randomNumber2 != 0) {
-                if (randomNumber > randomNumber2) {
-                    randomNumber = randomNumber - randomNumber2;
-                } else {
-                    randomNumber2 = randomNumber2 - randomNumber;
-                }
-            }
-            int answer = Engine.inputNumber();
-            if (randomNumber == answer) {
-                Engine.correctAnswer();
-                Engine.incrementCounter();
+        String name = NameUtils.askName();
+        String[][] questionAndAnswerArray = new String[COUNTOFGAMES][COUNTOFGAMES];
+        for (int i = 0; i < COUNTOFGAMES; i++) {
+            questionAndAnswerArray[i][0] = makeQuestion();
+            questionAndAnswerArray[i][1] = getSolution();
+        }
+        Engine.run(name, QUESTION, questionAndAnswerArray);
+    }
+
+    public static String makeQuestion() {
+        randomNumber = RandomNumberGenerator.generateRandom(MAXNUMBER);
+        secondRandomNumber = RandomNumberGenerator.generateRandom(MAXNUMBER);
+        return String.valueOf(randomNumber + " " + secondRandomNumber);
+    }
+
+    public static String getSolution() {
+        while (secondRandomNumber != 0) {
+            if (randomNumber > secondRandomNumber) {
+                randomNumber = randomNumber - secondRandomNumber;
             } else {
-                String num = Integer.toString(randomNumber);
-                String ans = Integer.toString(answer);
-                Engine.gameOver(ans, num);
-                Engine.setCounter(Engine.ROUNDSFORLOSE);
+                secondRandomNumber = secondRandomNumber - randomNumber;
             }
         }
-        Engine.congratulations();
+        return String.valueOf(secondRandomNumber);
     }
 }
