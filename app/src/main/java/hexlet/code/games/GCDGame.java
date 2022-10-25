@@ -23,11 +23,19 @@ public class GCDGame {
     public static String makeQuestion() {
         randomNumber = RandomNumberGenerator.generateRandom(MAXNUMBER);
         secondRandomNumber = RandomNumberGenerator.generateRandom(MAXNUMBER);
-        return String.valueOf(randomNumber + " " + secondRandomNumber);
+        return randomNumber + " " + secondRandomNumber;
     }
 
     public static String getSolution() {
-        while (secondRandomNumber != 0) {
+        if (randomNumber == 0) {
+            return String.valueOf(secondRandomNumber);
+        }
+
+        if (secondRandomNumber == 0) {
+            return String.valueOf(randomNumber);
+        }
+
+        while (secondRandomNumber != randomNumber) {
             if (randomNumber > secondRandomNumber) {
                 randomNumber = randomNumber - secondRandomNumber;
             } else {
