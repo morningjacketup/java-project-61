@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import main.java.hexlet.code.Engine;
-import main.java.hexlet.code.utils.NameUtils;
 import main.java.hexlet.code.utils.RandomNumberGenerator;
 
 public class CalculatorGame {
@@ -14,14 +13,13 @@ public class CalculatorGame {
     private static int secondNum;
     private static char mathOperator;
 
-    public static void startGame() {
-        String name = NameUtils.askName();
+    public static void createGame() {
         String[][] questionAndAnswerArray = new String[COUNTOFGAMES][COUNTOFGAMES];
         for (int i = 0; i < COUNTOFGAMES; i++) {
             questionAndAnswerArray[i][0] = makeQuestion();
             questionAndAnswerArray[i][1] = getSolution(questionAndAnswerArray[i][0]);
         }
-        Engine.run(name, QUESTION, questionAndAnswerArray);
+        Engine.run(QUESTION, questionAndAnswerArray);
     }
 
     public static String makeQuestion() {

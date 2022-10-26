@@ -39,11 +39,11 @@ public class App {
         if (0 < numberOfGame && numberOfGame <= MAXID) {
             switch (numberOfGame) {
                 case GREETINGS -> greet();
-                case EVEN -> OddOrEvenGame.startGame();
-                case CALCULATOR -> CalculatorGame.startGame();
-                case GCD -> GCDGame.startGame();
-                case PROGRESSION -> ProgressionGame.startGame();
-                case PRIME -> PrimeGame.startGame();
+                case EVEN -> OddOrEvenGame.createGame();
+                case CALCULATOR -> CalculatorGame.createGame();
+                case GCD -> GCDGame.createGame();
+                case PROGRESSION -> ProgressionGame.createGame();
+                case PRIME -> PrimeGame.createGame();
                 default -> { }
             }
         }

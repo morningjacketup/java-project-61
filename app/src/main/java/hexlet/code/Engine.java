@@ -1,5 +1,7 @@
 package main.java.hexlet.code;
 
+import main.java.hexlet.code.utils.NameUtils;
+
 import java.util.Scanner;
 
 public class Engine {
@@ -11,7 +13,8 @@ public class Engine {
     private static final String WRONG = "' is wrong answer ;(. Correct answer was '";
     private static final String AGAIN = "'\nLet's try again, ";
 
-    public static void run(String userName, String gameQuestion, String[][] questionAndAnswerArray) {
+    public static void run(String gameQuestion, String[][] questionAndAnswerArray) {
+        String name = NameUtils.askName();
         System.out.println(gameQuestion);
         for (int i = 0; i < ROUNDS; i++) {
             String answer = questionAndAnswerArray[i][1];
@@ -21,11 +24,11 @@ public class Engine {
                 System.out.println("Correct!");
                 counter++;
             } else {
-                System.out.println("'" + input + WRONG + answer + AGAIN + userName + "!");
+                System.out.println("'" + input + WRONG + answer + AGAIN + name + "!");
                 break;
             }
         }
-        congratulation(userName);
+        congratulation(name);
     }
 
     public static void congratulation(String userName) {

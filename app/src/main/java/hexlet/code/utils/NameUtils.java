@@ -14,7 +14,6 @@ public class NameUtils {
             name = scanner.next();
             System.out.println("Hello, " + name + "!");
         }
-
         return name;
     }
 }
