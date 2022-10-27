@@ -28,7 +28,7 @@ public class GCDGame {
         for (int i = 0; i < ROUNDS; i++) {
             int randomNumber = Utils.generateRandom(MAXNUMBER);
             int secondRandomNumber = Utils.generateRandom(MAXNUMBER);
-            roundsData[i][0] = secondRandomNumber + " " + randomNumber + " ";
+            roundsData[i][0] = secondRandomNumber + " " + randomNumber;
             roundsData[i][1] = calculateGCD(randomNumber, secondRandomNumber);
         }
         return roundsData;
