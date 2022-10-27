@@ -1,40 +1,48 @@
 package main.java.hexlet.code;
 
-import main.java.hexlet.code.utils.NameUtils;
-
 import java.util.Scanner;
 
 public class Engine {
-    private static int counter = 0;
     private static final int ROUNDS = 3;
-    private static String input;
-    private String[][] questionAndAnswerArray;
-    private static final Scanner SCANNER = new Scanner(System.in);
-    private static final String WRONG = "' is wrong answer ;(. Correct answer was '";
-    private static final String AGAIN = "'\nLet's try again, ";
+    private static final String WELCOME = "Welcome to the Brain Games!"
+            + "\nMay I have your name? ";
 
-    public static void run(String gameQuestion, String[][] questionAndAnswerArray) {
-        String name = NameUtils.askName();
-        System.out.println(gameQuestion);
+    public static void run(String description, String[][] roundsData) {
+        int counter = 0;
+        Scanner sc = new Scanner(System.in);
+        String name = askName();
+        String input = "";
+        System.out.println(description);
         for (int i = 0; i < ROUNDS; i++) {
-            String answer = questionAndAnswerArray[i][1];
-            System.out.print("Question: " + questionAndAnswerArray[i][0] + "\nYour answer: ");
-            input = SCANNER.next();
+            String answer = roundsData[i][1];
+            String question = "Question: " + roundsData[i][0] + "\nYour answer: ";
+            System.out.print(question);
+            input = sc.next();
             if (input.equals(answer)) {
                 System.out.println("Correct!");
                 counter++;
             } else {
-                System.out.println("'" + input + WRONG + answer + AGAIN + name + "!");
-                break;
+                System.out.println("'"
+                        + input
+                        + "' is wrong answer ;(. Correct answer was '"
+                        + answer
+                        + "'\nLet's try again, "
+                        + name + "!");
+                return;
             }
         }
-        congratulation(name);
+        System.out.println("Congratulations, " + name + "!");
     }
 
-    public static void congratulation(String userName) {
-        if (counter == ROUNDS) {
-            System.out.println("Congratulations, " + userName + "!");
+    public static String askName() {
+        String name = null;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(WELCOME);
+        if (scanner.hasNext()) {
+            name = scanner.next();
+            System.out.println("Hello, " + name + "!");
         }
+        return name;
     }
 }
 

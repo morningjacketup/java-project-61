@@ -11,7 +11,6 @@ import java.util.Scanner;
 import static hexlet.code.Cli.greet;
 
 public class App {
-    private static final int MAXID = 6;
     public static final int GREETINGS = 1;
     public static final int EVEN = 2;
     public static final int CALCULATOR = 3;
@@ -36,15 +35,15 @@ public class App {
         }
         int numberOfGame = sc.nextInt();
         System.out.println("Your choice: " + numberOfGame);
-        if (0 < numberOfGame && numberOfGame <= MAXID) {
-            switch (numberOfGame) {
-                case GREETINGS -> greet();
-                case EVEN -> OddOrEvenGame.createGame();
-                case CALCULATOR -> CalculatorGame.createGame();
-                case GCD -> GCDGame.createGame();
-                case PROGRESSION -> ProgressionGame.createGame();
-                case PRIME -> PrimeGame.createGame();
-                default -> { }
+        switch (numberOfGame) {
+            case GREETINGS -> greet();
+            case EVEN -> OddOrEvenGame.createGame();
+            case CALCULATOR -> CalculatorGame.createGame();
+            case GCD -> GCDGame.createGame();
+            case PROGRESSION -> ProgressionGame.createGame();
+            case PRIME -> PrimeGame.createGame();
+            default -> {
+                System.out.println("Enter number from 1 - 6");
             }
         }
         sc.close();

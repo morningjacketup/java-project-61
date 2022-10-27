@@ -1,50 +1,43 @@
 package hexlet.code.games;
 
 import main.java.hexlet.code.Engine;
-import main.java.hexlet.code.utils.RandomNumberGenerator;
+import main.java.hexlet.code.Utils;
 
 public class CalculatorGame {
-
     private static final String QUESTION = "What is the result of the expression?";
     private static final int MAXNUMBER = 100;
     private static final int NUMBEROFMATHOPERATIONS = 3;
-    private static final int COUNTOFGAMES = 3;
-    private static int firstNum;
-    private static int secondNum;
-    private static char mathOperator;
+    private static final int ROUNDS = 3;
+    private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void createGame() {
-        String[][] questionAndAnswerArray = new String[COUNTOFGAMES][COUNTOFGAMES];
-        for (int i = 0; i < COUNTOFGAMES; i++) {
-            questionAndAnswerArray[i][0] = makeQuestion();
-            questionAndAnswerArray[i][1] = getSolution(questionAndAnswerArray[i][0]);
-        }
-        Engine.run(QUESTION, questionAndAnswerArray);
+        Engine.run(QUESTION, generateRoundData());
     }
 
-    public static String makeQuestion() {
-        StringBuilder expression = new StringBuilder();
-        firstNum = RandomNumberGenerator.generateRandom(MAXNUMBER);
-        expression.append(firstNum).append(" ");
-        secondNum = RandomNumberGenerator.generateRandom(MAXNUMBER);
-        int mathOperation = RandomNumberGenerator.generateRandom(NUMBEROFMATHOPERATIONS);
-        mathOperator = switch (mathOperation) {
-            case 0 -> '+';
-            case 1 -> '-';
-            case 2 -> '*';
-            default -> throw new IllegalStateException("Unexpected value: " + mathOperation);
-        };
-        expression.append(mathOperator).append(" ").append(secondNum);
-        return expression.toString();
+    public static String makeQuestion(int firstNumber, int secondNumber, char operator) {
+        return firstNumber + " " + operator + " " + secondNumber;
     }
 
-    public static String getSolution(final String quest) {
-        int result = switch (mathOperator) {
-            case '+' -> firstNum + secondNum;
-            case '-' -> firstNum - secondNum;
-            case '*' -> firstNum * secondNum;
-            default -> throw new IllegalStateException("Unexpected value: " + quest);
+    public static String calculate(int firstNumber, int secondNumber, char operator) {
+        int result = switch (operator) {
+            case '+' -> firstNumber + secondNumber;
+            case '-' -> firstNumber - secondNumber;
+            case '*' -> firstNumber * secondNumber;
+            default -> throw new IllegalStateException("Unexpected value: " + operator);
         };
         return String.valueOf(result);
+    }
+
+    public static String[][] generateRoundData() {
+        String[][] roundsData = new String[ROUNDS][ROUNDS];
+        for (int i = 0; i < ROUNDS; i++) {
+            int firstNumber = Utils.generateRandom(MAXNUMBER);
+            int secondNumber = Utils.generateRandom(MAXNUMBER);
+            int mathOperator = Utils.generateRandom(NUMBEROFMATHOPERATIONS);
+            char operator = OPERATORS[mathOperator];
+            roundsData[i][0] = makeQuestion(firstNumber, secondNumber, operator);
+            roundsData[i][1] = calculate(firstNumber, secondNumber, operator);
+        }
+        return roundsData;
     }
 }
