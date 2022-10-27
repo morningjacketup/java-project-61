@@ -1,37 +1,40 @@
 package hexlet.code.games;
 
 import main.java.hexlet.code.Engine;
-import main.java.hexlet.code.utils.RandomNumberGenerator;
+import main.java.hexlet.code.Utils;
 
 public class GCDGame {
     private static final String QUESTION = "Find the greatest common divisor of given numbers.";
     private static final int MAXNUMBER = 100;
-    private static final int COUNTOFGAMES = 3;
-    private static int randomNumber;
-    private static int secondRandomNumber;
+    private static final int ROUNDS = 3;
+
     public static void createGame() {
-        String[][] questionAndAnswerArray = new String[COUNTOFGAMES][COUNTOFGAMES];
-        for (int i = 0; i < COUNTOFGAMES; i++) {
-            questionAndAnswerArray[i][0] = makeQuestion();
-            questionAndAnswerArray[i][1] = getSolution();
-        }
-        Engine.run(QUESTION, questionAndAnswerArray);
+        Engine.run(QUESTION, generateRoundData());
     }
 
-    public static String makeQuestion() {
-        randomNumber = RandomNumberGenerator.generateRandom(MAXNUMBER);
-        secondRandomNumber = RandomNumberGenerator.generateRandom(MAXNUMBER);
-        return randomNumber + " " + secondRandomNumber;
+    public static String makeQuestion(int firstNumber, int secondNumber) {
+        return firstNumber + " " + secondNumber;
     }
 
-    public static String getSolution() {
-        while (secondRandomNumber != randomNumber) {
-            if (randomNumber > secondRandomNumber) {
-                randomNumber = randomNumber - secondRandomNumber;
+    public static String calculateGCD(int number, int number2) {
+        while (number2 != number) {
+            if (number > number2) {
+                number = number - number2;
             } else {
-                secondRandomNumber = secondRandomNumber - randomNumber;
+                number2 = number2 - number;
             }
         }
-        return String.valueOf(secondRandomNumber);
+        return String.valueOf(number2);
+    }
+
+    public static String[][] generateRoundData() {
+        String[][] roundsData = new String[ROUNDS][ROUNDS];
+        for (int i = 0; i < ROUNDS; i++) {
+            int randomNumber = Utils.generateRandom(MAXNUMBER);
+            int secondRandomNumber = Utils.generateRandom(MAXNUMBER);
+            roundsData[i][0] = makeQuestion(randomNumber, secondRandomNumber);
+            roundsData[i][1] = calculateGCD(randomNumber, secondRandomNumber);
+        }
+        return roundsData;
     }
 }
