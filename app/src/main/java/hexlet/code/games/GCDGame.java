@@ -12,10 +12,6 @@ public class GCDGame {
         Engine.run(QUESTION, generateRoundData());
     }
 
-    public static String makeQuestion(int firstNumber, int secondNumber) {
-        return firstNumber + " " + secondNumber;
-    }
-
     public static String calculateGCD(int number, int number2) {
         while (number2 != number) {
             if (number > number2) {
@@ -32,7 +28,7 @@ public class GCDGame {
         for (int i = 0; i < ROUNDS; i++) {
             int randomNumber = Utils.generateRandom(MAXNUMBER);
             int secondRandomNumber = Utils.generateRandom(MAXNUMBER);
-            roundsData[i][0] = makeQuestion(randomNumber, secondRandomNumber);
+            roundsData[i][0] = randomNumber + " " + secondRandomNumber;
             roundsData[i][1] = calculateGCD(randomNumber, secondRandomNumber);
         }
         return roundsData;
