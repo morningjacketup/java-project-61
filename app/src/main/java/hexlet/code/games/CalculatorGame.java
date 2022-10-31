@@ -15,8 +15,9 @@ public class CalculatorGame {
     public static void createGame() {
         String[][] roundsData = new String[ROUNDS][ROUNDS];
         for (int i = 0; i < ROUNDS; i++) {
-            roundsData[i][0] = generateRoundQuestion()[QUESTIONARRAY];
-            roundsData[i][1] = generateRoundQuestion()[ANSWERARRAY];
+            String[] generatedData = generateRoundData();
+            roundsData[i][0] = generatedData[QUESTIONARRAY];
+            roundsData[i][1] = generatedData[ANSWERARRAY];
         }
         Engine.run(QUESTION, roundsData);
     }
@@ -31,14 +32,14 @@ public class CalculatorGame {
         return String.valueOf(result);
     }
 
-    public static String[] generateRoundQuestion() {
+    public static String[] generateRoundData() {
         String[] roundData = new String[2];
         int firstNumber = Utils.generateRandom(MAXNUMBER);
         int secondNumber = Utils.generateRandom(MAXNUMBER);
         int mathOperator = Utils.generateRandom(NUMBEROFMATHOPERATIONS);
         char operator = OPERATORS[mathOperator];
-        roundData[0] = firstNumber + " " + operator + " " + secondNumber;
-        roundData[1] = calculate(firstNumber, secondNumber, operator);
+        roundData[QUESTIONARRAY] = firstNumber + " " + operator + " " + secondNumber;
+        roundData[ANSWERARRAY] = calculate(firstNumber, secondNumber, operator);
         return roundData;
     }
 }

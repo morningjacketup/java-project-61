@@ -15,8 +15,9 @@ public class ProgressionGame {
     public static void createGame() {
         String[][] roundsData = new String[ROUNDS][ROUNDS];
         for (int i = 0; i < ROUNDS; i++) {
-            roundsData[i][0] = generateRoundData()[QUESTIONARRAY];
-            roundsData[i][1] = generateRoundData()[ANSWERARRAY];
+            String[] generatedData = generateRoundData();
+            roundsData[i][0] = generatedData[QUESTIONARRAY];
+            roundsData[i][1] = generatedData[ANSWERARRAY];
         }
         Engine.run(QUESTION, roundsData);
     }
