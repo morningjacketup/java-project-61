@@ -9,15 +9,15 @@ public class ProgressionGame {
     private static final int ROUNDS = 3;
     private static final int COUNTOFARRAYSIZE = 10;
     private static final int MAXSTEP = 5;
-    private static final int QUESTIONARRAY = 0;
-    private static final int ANSWERARRAY = 1;
+    private static final int QUESTIONINDEX = 0;
+    private static final int ANSWERINDEX = 1;
 
     public static void createGame() {
         String[][] roundsData = new String[ROUNDS][ROUNDS];
         for (int i = 0; i < ROUNDS; i++) {
             String[] generatedData = generateRoundData();
-            roundsData[i][0] = generatedData[QUESTIONARRAY];
-            roundsData[i][1] = generatedData[ANSWERARRAY];
+            roundsData[i][0] = generatedData[QUESTIONINDEX];
+            roundsData[i][1] = generatedData[ANSWERINDEX];
         }
         Engine.run(QUESTION, roundsData);
     }
@@ -54,8 +54,8 @@ public class ProgressionGame {
         int randomIndex = Utils.generateRandom(COUNTOFARRAYSIZE);
         int randomStart = Utils.generateRandom(MAXNUMBER);
         int[] list = generateProgression(randomStart, step);
-        roundData[QUESTIONARRAY] = makeQuestion(list, randomIndex);
-        roundData[ANSWERARRAY] = getSolution(randomIndex, list);
+        roundData[QUESTIONINDEX] = makeQuestion(list, randomIndex);
+        roundData[ANSWERINDEX] = getSolution(randomIndex, list);
         return roundData;
     }
 }

@@ -7,15 +7,15 @@ public class PrimeGame {
     private static final String QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int MAXNUMBER = 100;
     private static final int ROUNDS = 3;
-    private static final int QUESTIONARRAY = 0;
-    private static final int ANSWERARRAY = 1;
+    private static final int QUESTIONINDEX = 0;
+    private static final int ANSWERINDEX = 1;
 
     public static void createGame() {
         String[][] roundsData = new String[ROUNDS][ROUNDS];
         for (int i = 0; i < ROUNDS; i++) {
             String[] generatedData = generateRoundData();
-            roundsData[i][0] = generatedData[QUESTIONARRAY];
-            roundsData[i][1] = generatedData[ANSWERARRAY];
+            roundsData[i][0] = generatedData[QUESTIONINDEX];
+            roundsData[i][1] = generatedData[ANSWERINDEX];
         }
         Engine.run(QUESTION, roundsData);
     }
@@ -35,8 +35,8 @@ public class PrimeGame {
     public static String[] generateRoundData() {
         String[] roundData = new String[2];
         int correctNumber = Utils.generateRandom(MAXNUMBER);
-        roundData[QUESTIONARRAY] = String.valueOf(correctNumber);
-        roundData[ANSWERARRAY] = isPrime(correctNumber) ? "yes" : "no";
+        roundData[QUESTIONINDEX] = String.valueOf(correctNumber);
+        roundData[ANSWERINDEX] = isPrime(correctNumber) ? "yes" : "no";
         return roundData;
     }
 }

@@ -7,15 +7,15 @@ public class GCDGame {
     private static final String QUESTION = "Find the greatest common divisor of given numbers.";
     private static final int MAXNUMBER = 100;
     private static final int ROUNDS = 3;
-    private static final int QUESTIONARRAY = 0;
-    private static final int ANSWERARRAY = 1;
+    private static final int QUESTIONINDEX = 0;
+    private static final int ANSWERINDEX = 1;
 
     public static void createGame() {
         String[][] roundsData = new String[ROUNDS][ROUNDS];
         for (int i = 0; i < ROUNDS; i++) {
             String[] generatedData = generateRoundData();
-            roundsData[i][0] = generatedData[QUESTIONARRAY];
-            roundsData[i][1] = generatedData[ANSWERARRAY];
+            roundsData[i][0] = generatedData[QUESTIONINDEX];
+            roundsData[i][1] = generatedData[ANSWERINDEX];
         }
         Engine.run(QUESTION, roundsData);
     }
@@ -35,8 +35,8 @@ public class GCDGame {
         String[] roundData = new String[2];
         int randomNumber = Utils.generateRandom(MAXNUMBER);
         int secondRandomNumber = Utils.generateRandom(MAXNUMBER);
-        roundData[QUESTIONARRAY] = secondRandomNumber + " " + randomNumber;
-        roundData[ANSWERARRAY] = calculateGCD(randomNumber, secondRandomNumber);
+        roundData[QUESTIONINDEX] = secondRandomNumber + " " + randomNumber;
+        roundData[ANSWERINDEX] = calculateGCD(randomNumber, secondRandomNumber);
         return roundData;
     }
 }
