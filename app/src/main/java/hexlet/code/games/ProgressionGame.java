@@ -6,9 +6,11 @@ import main.java.hexlet.code.Utils;
 public class ProgressionGame {
     private static final String QUESTION = "What number is missing in the progression?";
     private static final int MAXNUMBER = 100;
+    private static final int RANDOMINDEX = 10;
+    private static final int RANDOMSTEP = 5;
 
     public static void createGame() {
-        String[][] roundsData = new String[3][2];
+        String[][] roundsData = new String[Engine.ROUNDS][2];
         for (int i = 0; i < 3; i++) {
             String[] generatedData = generateRoundData();
             roundsData[i] = generatedData;
@@ -39,8 +41,8 @@ public class ProgressionGame {
 
     private static String[] generateRoundData() {
         String[] roundData = new String[2];
-        int step = Utils.generateRandom(5) + 1;
-        int randomIndex = Utils.generateRandom(10);
+        int step = Utils.generateRandom(RANDOMSTEP) + 1;
+        int randomIndex = Utils.generateRandom(RANDOMINDEX);
         int randomStart = Utils.generateRandom(MAXNUMBER);
         int[] list = generateProgression(randomStart, step);
         roundData[0] = makeQuestion(list, randomIndex);

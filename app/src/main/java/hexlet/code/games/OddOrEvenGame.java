@@ -8,7 +8,7 @@ public class OddOrEvenGame {
     private static final String QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void createGame() {
-        String[][] roundsData = new String[3][2];
+        String[][] roundsData = new String[Engine.ROUNDS][2];
         for (int i = 0; i < 3; i++) {
             String[] generatedData = generateRoundData();
             roundsData[i] = generatedData;

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     private static final String WELCOME = "May I have your name? ";
+    public static final int ROUNDS = 3;
 
     public static void run(String description, String[][] roundsData) {
         Scanner sc = new Scanner(System.in);
