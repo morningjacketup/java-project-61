@@ -16,7 +16,7 @@ public class GCDGame {
         Engine.run(QUESTION, roundsData);
     }
 
-    private static String calculateGCD(int number, int number2) {
+    private static int calculateGCD(int number, int number2) {
         while (number2 != number) {
             if (number > number2) {
                 number = number - number2;
@@ -24,7 +24,7 @@ public class GCDGame {
                 number2 = number2 - number;
             }
         }
-        return String.valueOf(number2);
+        return number2;
     }
 
     private static String[] generateRoundData() {
@@ -32,7 +32,7 @@ public class GCDGame {
         int randomNumber = Utils.generateRandom(MAXNUMBER);
         int secondRandomNumber = Utils.generateRandom(MAXNUMBER);
         roundData[0] = secondRandomNumber + " " + randomNumber;
-        roundData[1] = calculateGCD(randomNumber, secondRandomNumber);
+        roundData[1] = String.valueOf(calculateGCD(randomNumber, secondRandomNumber));
         return roundData;
     }
 }
