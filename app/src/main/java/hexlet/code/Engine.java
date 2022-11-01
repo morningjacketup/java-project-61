@@ -20,8 +20,8 @@ public class Engine {
             if (input.equals(answer)) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + input + "' is wrong answer ;(. Correct answer was '" + answer + "'");
-                System.out.println("Let's try again, " + name + "!");
+                System.out.print("'" + input + "' is wrong answer ;(. Correct answer was '" + answer + "'");
+                System.out.print("\nLet's try again, " + name + "!\n");
                 return;
             }
         }

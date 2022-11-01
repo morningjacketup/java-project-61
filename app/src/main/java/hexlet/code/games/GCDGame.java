@@ -31,7 +31,7 @@ public class GCDGame {
         String[] roundData = new String[2];
         int randomNumber = Utils.generateRandom(MAXNUMBER);
         int secondRandomNumber = Utils.generateRandom(MAXNUMBER);
-        roundData[0] = secondRandomNumber + " " + randomNumber;
+        roundData[0] = randomNumber + " " + secondRandomNumber;
         roundData[1] = String.valueOf(calculateGCD(randomNumber, secondRandomNumber));
         return roundData;
     }
