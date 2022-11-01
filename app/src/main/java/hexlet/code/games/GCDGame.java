@@ -11,7 +11,7 @@ public class GCDGame {
     private static final int ANSWERINDEX = 1;
 
     public static void createGame() {
-        String[][] roundsData = new String[ROUNDS][ROUNDS];
+        String[][] roundsData = new String[ROUNDS][2];
         for (int i = 0; i < ROUNDS; i++) {
             String[] generatedData = generateRoundData();
             roundsData[i] = generatedData;

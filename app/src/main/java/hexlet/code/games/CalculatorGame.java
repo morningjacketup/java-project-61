@@ -13,7 +13,7 @@ public class CalculatorGame {
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void createGame() {
-        String[][] roundsData = new String[2][2];
+        String[][] roundsData = new String[ROUNDS][2];
         for (int i = 0; i < ROUNDS; i++) {
             String[] generatedData = generateRoundData();
             roundsData[i] = generatedData;

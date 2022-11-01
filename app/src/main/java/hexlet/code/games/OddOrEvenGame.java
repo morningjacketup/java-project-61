@@ -11,7 +11,7 @@ public class OddOrEvenGame {
     private static final String QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void createGame() {
-        String[][] roundsData = new String[ROUNDS][ROUNDS];
+        String[][] roundsData = new String[ROUNDS][2];
         for (int i = 0; i < ROUNDS; i++) {
             String[] generatedData = generateRoundData();
             roundsData[i] = generatedData;
