@@ -6,22 +6,17 @@ import main.java.hexlet.code.Utils;
 public class ProgressionGame {
     private static final String QUESTION = "What number is missing in the progression?";
     private static final int MAXNUMBER = 100;
-    private static final int ROUNDS = 3;
-    private static final int COUNTOFARRAYSIZE = 10;
-    private static final int MAXSTEP = 5;
-    private static final int QUESTIONINDEX = 0;
-    private static final int ANSWERINDEX = 1;
 
     public static void createGame() {
-        String[][] roundsData = new String[ROUNDS][2];
-        for (int i = 0; i < ROUNDS; i++) {
+        String[][] roundsData = new String[3][2];
+        for (int i = 0; i < 3; i++) {
             String[] generatedData = generateRoundData();
             roundsData[i] = generatedData;
         }
         Engine.run(QUESTION, roundsData);
     }
 
-    public static String makeQuestion(int[] list, int index) {
+    private static String makeQuestion(int[] list, int index) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < index; i++) {
             sb.append(list[i] + " ");
@@ -33,28 +28,23 @@ public class ProgressionGame {
         return sb.toString();
     }
 
-    public static int[] generateProgression(int start, int step) {
-        int[] list = new int[COUNTOFARRAYSIZE];
-        for (int i = 0; i < COUNTOFARRAYSIZE; i++) {
+    private static int[] generateProgression(int start, int step) {
+        int[] list = new int[10];
+        for (int i = 0; i < 10; i++) {
             list[i] = start;
             start += step;
         }
         return list;
     }
 
-    public static String getSolution(int index, int[] list) {
-        int result = list[index];
-        return String.valueOf(result);
-    }
-
-    public static String[] generateRoundData() {
+    private static String[] generateRoundData() {
         String[] roundData = new String[2];
-        int step = Utils.generateRandom(MAXSTEP) + 1;
-        int randomIndex = Utils.generateRandom(COUNTOFARRAYSIZE);
+        int step = Utils.generateRandom(5) + 1;
+        int randomIndex = Utils.generateRandom(10);
         int randomStart = Utils.generateRandom(MAXNUMBER);
         int[] list = generateProgression(randomStart, step);
-        roundData[QUESTIONINDEX] = makeQuestion(list, randomIndex);
-        roundData[ANSWERINDEX] = getSolution(randomIndex, list);
+        roundData[0] = makeQuestion(list, randomIndex);
+        roundData[1] = String.valueOf(list[randomIndex]);
         return roundData;
     }
 }
