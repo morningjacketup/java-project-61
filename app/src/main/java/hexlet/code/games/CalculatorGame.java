@@ -12,8 +12,7 @@ public class CalculatorGame {
     public static void createGame() {
         String[][] roundsData = new String[Engine.ROUNDS][2];
         for (int i = 0; i < roundsData.length; i++) {
-            String[] generatedData = generateRoundData();
-            roundsData[i] = generatedData;
+            roundsData[i] = generateRoundData();
         }
         Engine.run(QUESTION, roundsData);
     }
@@ -32,7 +31,7 @@ public class CalculatorGame {
         String[] roundData = new String[2];
         int firstNumber = Utils.generateRandom(MAXNUMBER);
         int secondNumber = Utils.generateRandom(MAXNUMBER);
-        int mathOperator = Utils.generateRandom(MATHOPERATORRANDOMNUMBER);
+        int mathOperator = Utils.generateRandom(OPERATORS.length);
         char operator = OPERATORS[mathOperator];
         roundData[0] = firstNumber + " " + operator + " " + secondNumber;
         roundData[1] = String.valueOf(calculate(firstNumber, secondNumber, operator));
