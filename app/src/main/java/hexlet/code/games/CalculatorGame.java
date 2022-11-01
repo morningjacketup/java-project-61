@@ -6,11 +6,12 @@ import main.java.hexlet.code.Utils;
 public class CalculatorGame {
     private static final String QUESTION = "What is the result of the expression?";
     private static final int MAXNUMBER = 100;
+    private static final int MATHOPERATORRANDOMNUMBER = 3;
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void createGame() {
         String[][] roundsData = new String[Engine.ROUNDS][2];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < roundsData.length; i++) {
             String[] generatedData = generateRoundData();
             roundsData[i] = generatedData;
         }
@@ -31,7 +32,7 @@ public class CalculatorGame {
         String[] roundData = new String[2];
         int firstNumber = Utils.generateRandom(MAXNUMBER);
         int secondNumber = Utils.generateRandom(MAXNUMBER);
-        int mathOperator = Utils.generateRandom(3);
+        int mathOperator = Utils.generateRandom(MATHOPERATORRANDOMNUMBER);
         char operator = OPERATORS[mathOperator];
         roundData[0] = firstNumber + " " + operator + " " + secondNumber;
         roundData[1] = String.valueOf(calculate(firstNumber, secondNumber, operator));
