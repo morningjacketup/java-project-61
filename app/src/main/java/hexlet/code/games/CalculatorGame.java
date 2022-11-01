@@ -13,11 +13,10 @@ public class CalculatorGame {
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void createGame() {
-        String[][] roundsData = new String[ROUNDS][ROUNDS];
+        String[][] roundsData = new String[2][2];
         for (int i = 0; i < ROUNDS; i++) {
             String[] generatedData = generateRoundData();
-            roundsData[i][0] = generatedData[QUESTIONINDEX];
-            roundsData[i][1] = generatedData[ANSWERINDEX];
+            roundsData[i] = generatedData;
         }
         Engine.run(QUESTION, roundsData);
     }

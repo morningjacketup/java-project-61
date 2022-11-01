@@ -14,8 +14,7 @@ public class PrimeGame {
         String[][] roundsData = new String[ROUNDS][ROUNDS];
         for (int i = 0; i < ROUNDS; i++) {
             String[] generatedData = generateRoundData();
-            roundsData[i][0] = generatedData[QUESTIONINDEX];
-            roundsData[i][1] = generatedData[ANSWERINDEX];
+            roundsData[i] = generatedData;
         }
         Engine.run(QUESTION, roundsData);
     }
