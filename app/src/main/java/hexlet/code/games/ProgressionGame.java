@@ -7,6 +7,7 @@ public class ProgressionGame {
     private static final String QUESTION = "What number is missing in the progression?";
     private static final int MAXNUMBER = 100;
     private static final int RANDOMINDEX = 10;
+    private static final int SIZEOFARRAY = 10;
     private static final int RANDOMSTEP = 5;
 
     public static void createGame() {
@@ -31,8 +32,8 @@ public class ProgressionGame {
     }
 
     private static int[] generateProgression(int start, int step) {
-        int[] list = new int[10];
-        for (int i = 0; i < 10; i++) {
+        int[] list = new int[SIZEOFARRAY];
+        for (int i = 0; i < list.length; i++) {
             list[i] = start;
             start += step;
         }
