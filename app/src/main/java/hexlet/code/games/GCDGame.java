@@ -8,11 +8,7 @@ public class GCDGame {
     private static final int MAXNUMBER = 100;
 
     public static void createGame() {
-        String[][] roundsData = new String[Engine.ROUNDS][2];
-        for (int i = 0; i < roundsData.length; i++) {
-            roundsData[i] = generateRoundData();
-        }
-        Engine.run(QUESTION, roundsData);
+        Engine.run(QUESTION, generateRoundsData());
     }
 
     private static int calculateGCD(int number, int number2) {
@@ -31,5 +27,13 @@ public class GCDGame {
         int secondRandomNumber = Utils.generateRandom(MAXNUMBER);
         return new String[]{randomNumber + " " + secondRandomNumber,
                 String.valueOf(calculateGCD(randomNumber, secondRandomNumber))};
+    }
+
+    private static String[][] generateRoundsData() {
+        String[][] roundsData = new String[Engine.ROUNDS][2];
+        for (int i = 0; i < roundsData.length; i++) {
+            roundsData[i] = generateRoundData();
+        }
+        return roundsData;
     }
 }
