@@ -40,13 +40,11 @@ public class ProgressionGame {
     }
 
     private static String[] generateRoundData() {
-        String[] roundData = new String[2];
         int step = Utils.generateRandom(RANDOMSTEP) + 1;
         int randomIndex = Utils.generateRandom(RANDOMINDEX);
         int randomStart = Utils.generateRandom(MAXNUMBER);
         int[] list = generateProgression(randomStart, step);
-        roundData[0] = makeQuestion(list, randomIndex);
-        roundData[1] = String.valueOf(list[randomIndex]);
-        return roundData;
+        return new String[]{makeQuestion(list, randomIndex),
+                String.valueOf(list[randomIndex])};
     }
 }

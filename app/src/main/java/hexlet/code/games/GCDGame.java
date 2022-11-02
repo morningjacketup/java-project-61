@@ -27,11 +27,9 @@ public class GCDGame {
     }
 
     private static String[] generateRoundData() {
-        String[] roundData = new String[2];
         int randomNumber = Utils.generateRandom(MAXNUMBER);
         int secondRandomNumber = Utils.generateRandom(MAXNUMBER);
-        roundData[0] = randomNumber + " " + secondRandomNumber;
-        roundData[1] = String.valueOf(calculateGCD(randomNumber, secondRandomNumber));
-        return roundData;
+        return new String[]{randomNumber + " " + secondRandomNumber,
+                String.valueOf(calculateGCD(randomNumber, secondRandomNumber))};
     }
 }
