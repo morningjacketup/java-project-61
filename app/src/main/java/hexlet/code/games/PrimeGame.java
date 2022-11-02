@@ -28,10 +28,7 @@ public class PrimeGame {
     }
 
     private static String[] generateRoundData() {
-        String[] roundData = new String[2];
         int correctNumber = Utils.generateRandom(MAXNUMBER);
-        roundData[0] = String.valueOf(correctNumber);
-        roundData[1] = isPrime(correctNumber) ? "yes" : "no";
-        return roundData;
+        return new String[]{String.valueOf(correctNumber), isPrime(correctNumber) ? "yes" : "no"};
     }
 }

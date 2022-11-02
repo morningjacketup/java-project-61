@@ -20,10 +20,8 @@ public class OddOrEvenGame {
     }
 
     private static String[] generateRoundData() {
-        String[] roundData = new String[2];
         int randomNumber = Utils.generateRandom(MAXNUMBER);
-        roundData[0] = String.valueOf(randomNumber);
-        roundData[1] = isEven(randomNumber) ? "yes" : "no";
-        return roundData;
+        return new String[]{String.valueOf(randomNumber),
+                isEven(randomNumber) ? "yes" : "no"};
     }
 }

@@ -28,13 +28,11 @@ public class CalculatorGame {
     }
 
     private static String[] generateRoundData() {
-        String[] roundData = new String[2];
         int firstNumber = Utils.generateRandom(MAXNUMBER);
         int secondNumber = Utils.generateRandom(MAXNUMBER);
         int mathOperator = Utils.generateRandom(OPERATORS.length);
         char operator = OPERATORS[mathOperator];
-        roundData[0] = firstNumber + " " + operator + " " + secondNumber;
-        roundData[1] = String.valueOf(calculate(firstNumber, secondNumber, operator));
-        return roundData;
+        return new String[]{firstNumber + " " + operator + " " + secondNumber,
+                String.valueOf(calculate(firstNumber, secondNumber, operator))};
     }
 }
