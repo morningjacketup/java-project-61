@@ -11,7 +11,11 @@ public class ProgressionGame {
     private static final int RANDOMSTEP = 5;
 
     public static void createGame() {
-        Engine.run(QUESTION, generateRoundsData());
+        String[][] roundsData = new String[Engine.ROUNDS][2];
+        for (int i = 0; i < roundsData.length; i++) {
+            roundsData[i] = generateRoundData();
+        }
+        Engine.run(QUESTION, roundsData);
     }
 
     private static String makeQuestion(int[] list, int index) {
@@ -42,13 +46,5 @@ public class ProgressionGame {
         int[] list = generateProgression(randomStart, step);
         return new String[]{makeQuestion(list, randomIndex),
                 String.valueOf(list[randomIndex])};
-    }
-
-    private static String[][] generateRoundsData() {
-        String[][] roundsData = new String[Engine.ROUNDS][2];
-        for (int i = 0; i < roundsData.length; i++) {
-            roundsData[i] = generateRoundData();
-        }
-        return roundsData;
     }
 }

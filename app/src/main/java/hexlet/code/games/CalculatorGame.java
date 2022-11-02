@@ -9,7 +9,11 @@ public class CalculatorGame {
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void createGame() {
-        Engine.run(QUESTION, generateRoundsData());
+        String[][] roundsData = new String[Engine.ROUNDS][2];
+        for (int i = 0; i < roundsData.length; i++) {
+            roundsData[i] = generateRoundData();
+        }
+        Engine.run(QUESTION, roundsData);
     }
 
     private static int calculate(int firstNumber, int secondNumber, char operator) {
@@ -29,13 +33,5 @@ public class CalculatorGame {
         char operator = OPERATORS[mathOperator];
         return new String[]{firstNumber + " " + operator + " " + secondNumber,
                 String.valueOf(calculate(firstNumber, secondNumber, operator))};
-    }
-
-    private static String[][] generateRoundsData() {
-        String[][] roundsData = new String[Engine.ROUNDS][2];
-        for (int i = 0; i < roundsData.length; i++) {
-            roundsData[i] = generateRoundData();
-        }
-        return roundsData;
     }
 }
