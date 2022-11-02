@@ -8,11 +8,8 @@ public class OddOrEvenGame {
     private static final String QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void createGame() {
-        String[][] roundsData = new String[Engine.ROUNDS][2];
-        for (int i = 0; i < roundsData.length; i++) {
-            roundsData[i] = generateRoundData();
-        }
-        Engine.run(QUESTION, roundsData);
+
+        Engine.run(QUESTION, generateRoundsData());
     }
 
     private static boolean isEven(int number) {
@@ -23,5 +20,13 @@ public class OddOrEvenGame {
         int randomNumber = Utils.generateRandom(MAXNUMBER);
         return new String[]{String.valueOf(randomNumber),
                 isEven(randomNumber) ? "yes" : "no"};
+    }
+
+    private static String[][] generateRoundsData() {
+        String[][] roundsData = new String[Engine.ROUNDS][2];
+        for (int i = 0; i < roundsData.length; i++) {
+            roundsData[i] = generateRoundData();
+        }
+        return roundsData;
     }
 }

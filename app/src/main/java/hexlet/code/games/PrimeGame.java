@@ -8,11 +8,7 @@ public class PrimeGame {
     private static final int MAXNUMBER = 100;
 
     public static void createGame() {
-        String[][] roundsData = new String[Engine.ROUNDS][2];
-        for (int i = 0; i < roundsData.length; i++) {
-            roundsData[i] = generateRoundData();
-        }
-        Engine.run(QUESTION, roundsData);
+        Engine.run(QUESTION, generateRoundsData());
     }
 
     private static boolean isPrime(int number) {
@@ -30,5 +26,13 @@ public class PrimeGame {
     private static String[] generateRoundData() {
         int correctNumber = Utils.generateRandom(MAXNUMBER);
         return new String[]{String.valueOf(correctNumber), isPrime(correctNumber) ? "yes" : "no"};
+    }
+
+    private static String[][] generateRoundsData() {
+        String[][] roundsData = new String[Engine.ROUNDS][2];
+        for (int i = 0; i < roundsData.length; i++) {
+            roundsData[i] = generateRoundData();
+        }
+        return roundsData;
     }
 }
